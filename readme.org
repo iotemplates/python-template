@@ -24,10 +24,11 @@ poetry install
 
 * Testing
   
+The project has been configured to use pytest.
 To run the unit tests:  
 
 #+begin_src sh
-poetry run pytest
+poetry run pytest --cov tests
 #+end_src
 
 
