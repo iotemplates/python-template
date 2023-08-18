@@ -44,13 +44,30 @@ poetry run python python_template
 * Editor setup
 
   The project has been tested with [[https://github.com/microsoft/pyright][pyright]]. The tool will automatically detect [[./.venv]] for virtualenv and [[./typings]] for stubs and is expected to work out of the box.
-  In order to generate stubs, you can use [[https://github.com/sizmailov/pybind11-stubgen][pybind11-stubgen]] via [[https://python-poetry.org/][poetry]]:
 
-
-  To add the tool:
+  ** Setting up virtual environment in project
 
   #+begin_src sh
-    poetry add pybind11-stubgen
+    poetry config virtualenvs.path .venv
+    poetry config virtualenvs.in-project true
+  #+end_src
+
+  ** Optionally configure pyright
+
+  #+begin_src
+    [tool.pyright]
+    venvPath = "."
+    venv = ".venv"
+  #+end_src
+
+* Generating Stubs
+    In order to generate stubs, you can use [[https://github.com/sizmailov/pybind11-stubgen][pybind11-stubgen]] via [[https://python-poetry.org/][poetry]]:
+
+
+    To add the tool:
+
+    ,#+begin_src sh
+      poetry add pybind11-stubgen
   #+end_src
 
   To generate stubs, in a place where [[https://github.com/microsoft/pyright][pyright]] will find them out of the box: 
